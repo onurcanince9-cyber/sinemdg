@@ -15,19 +15,23 @@
       --text-muted: #b9b6c7;
     }
 
-    * { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+    }
 
     html, body {
       margin: 0;
       padding: 0;
       background: radial-gradient(circle at top, #1a1030 0, #050509 55%);
       color: var(--text-main);
-      font-family: 'Poppins', system-ui, sans-serif;
+      font-family: 'Poppins', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
       overflow-x: hidden;
       scroll-behavior: smooth;
     }
 
-    body { min-height: 100vh; }
+    body {
+      min-height: 100vh;
+    }
 
     .snowflake {
       position: fixed;
@@ -44,6 +48,18 @@
       100% { transform: translateY(120vh); }
     }
 
+    .heart-firework {
+      position: fixed;
+      font-size: 18px;
+      animation: explode 1.6s ease-out forwards;
+      pointer-events: none;
+      z-index: 30;
+    }
+    @keyframes explode {
+      0% { transform: scale(0.7); opacity: 1; }
+      100% { transform: scale(8); opacity: 0; }
+    }
+
     .page {
       position: relative;
       z-index: 2;
@@ -52,13 +68,36 @@
       padding: 20px 18px 60px;
     }
 
-    header { padding: 40px 0 20px; text-align: center; }
+    header {
+      padding: 40px 0 20px;
+      text-align: center;
+    }
+
+    .hero-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 14px;
+      border-radius: 999px;
+      border: 1px solid var(--accent-soft);
+      background: radial-gradient(circle at top left, rgba(244,194,107,0.25), transparent 60%);
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
 
     .hero-title {
       margin: 16px 0 6px;
       font-family: 'Playfair Display', serif;
       font-weight: 700;
       font-size: 32px;
+    }
+
+    .hero-sub {
+      margin: 0;
+      font-size: 14px;
+      color: var(--text-muted);
     }
 
     .hero-actions {
@@ -73,72 +112,111 @@
       border-radius: 999px;
       padding: 11px 22px;
       font-size: 14px;
+      border: 1px solid transparent;
       cursor: pointer;
+      transition: 0.18s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
       font-weight: 500;
     }
 
     .btn-primary {
       background: linear-gradient(135deg, #f4c26b, #f09b3b);
       color: #1b1006;
+      box-shadow: 0 0 24px rgba(244,194,107,0.45);
+    }
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 0 30px rgba(244,194,107,0.6);
     }
 
-    #introOverlay {
-      position: fixed;
-      inset: 0;
-      background: radial-gradient(circle at top, #0a0616 0, #020204 60%);
+    .btn-ghost {
+      background: transparent;
+      border-color: var(--accent-soft);
+      color: var(--text-main);
+    }
+    .btn-ghost:hover {
+      border-color: var(--accent);
+      background: rgba(255,255,255,0.02);
+    }
+
+    .section {
+      margin-top: 24px;
+    }
+
+    .card {
+      background: linear-gradient(135deg, rgba(10,10,18,0.96), rgba(15,10,26,0.96));
+      border-radius: 20px;
+      padding: 22px 18px;
+      box-shadow: 0 18px 40px rgba(0,0,0,0.6);
+      border: 1px solid rgba(255,255,255,0.03);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: -120px;
+      background:
+        radial-gradient(circle at top left, rgba(244,194,107,0.15), transparent 55%),
+        radial-gradient(circle at bottom right, rgba(95,154,255,0.12), transparent 55%);
+      opacity: 0.65;
+      mix-blend-mode: screen;
+      pointer-events: none;
+    }
+
+    .card-inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    .card-title {
+      font-size: 18px;
+      margin: 0 0 4px;
+      font-family: 'Playfair Display', serif;
+    }
+
+    .card-sub {
+      margin: 0 0 14px;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .couple-photo {
+      margin-top: 10px;
+      width: 100%;
+      border-radius: 18px;
+      box-shadow: 0 18px 40px rgba(0,0,0,0.85);
+      border: 1px solid rgba(244,194,107,0.28);
+      object-fit: cover;
+    }
+
+    .rose-row {
       display: flex;
       align-items: center;
-      justify-content: center;
-      z-index: 100;
+      gap: 14px;
+      margin-top: 10px;
+      flex-wrap: wrap;
     }
 
-    .intro-content {
-      text-align: center;
-      padding: 30px 22px;
-      border-radius: 24px;
-      background: rgba(10,10,18,0.96);
-      border: 1px solid rgba(244,194,107,0.5);
+    .transparent-rose {
+      width: 120px;
+      max-width: 38vw;
+      cursor: pointer;
+      filter: drop-shadow(0 0 16px rgba(0,0,0,0.8));
+      transition: 0.2s ease;
     }
-  </style>
-</head>
-<body>
+    .transparent-rose:hover {
+      transform: translateY(-3px) scale(1.03);
+    }
 
-<!-- ✅ MÜZİK BURADA -->
-<audio id="bgMusic" loop>
-  <source src="muzik.mp3" type="audio/mpeg">
-</audio>
+    .rose-text {
+      flex: 1;
+      min-width: 180px;
+      font-size: 14px;
+      color: var(--text-muted);
+    }
 
-<div id="introOverlay">
-  <div class="intro-content">
-    <h1>Hoş geldin aşkım</h1>
-    <p>Bu site, sana dair hissettiklerimin küçük bir yansıması...</p>
-    <button onclick="closeIntro()" class="btn btn-primary">Devam Et</button>
-  </div>
-</div>
-
-<div class="page">
-  <header>
-    <h1 class="hero-title">Sinem için küçük ama sonsuz bir evren 🖤</h1>
-    <div class="hero-actions">
-      <button class="btn btn-primary">Doğum Günü Sürprizini Aç 🎁</button>
-    </div>
-  </header>
-</div>
-
-<script>
-function closeIntro() {
-  const intro = document.getElementById('introOverlay');
-  intro.style.opacity = '0';
-
-  const music = document.getElementById("bgMusic");
-  music.volume = 0.9;
-  music.play();
-
-  setTimeout(() => intro.remove(), 600);
-}
-</script>
-
-</body>
-</html>
-</body>
-</html>
+    .ro
