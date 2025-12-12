@@ -231,12 +231,17 @@
       color: var(--accent);
       display: none;
     }
+    @media (max-width: 768px) {
+  .playlist {
+    overflow: hidden;
+    }
+
 
     .playlist iframe {
-      border-radius: 15px;
-      margin-top: 10px;
-      border: none;
-      width: 100%;
+    height: 280px !important;
+    min-height: 280px !important;
+    max-height: 280px !important;
+    display: block;
     }
 
     footer {
