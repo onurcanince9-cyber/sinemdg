@@ -1,0 +1,869 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sinem İçin – Özel Site 🖤</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-main: #050509;
+      --bg-card: rgba(10,10,18,0.9);
+      --accent: #f4c26b;
+      --accent-soft: rgba(244,194,107,0.18);
+      --text-main: #f9f7ff;
+      --text-muted: #b9b6c7;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: radial-gradient(circle at top, #1a1030 0, #050509 55%);
+      color: var(--text-main);
+      font-family: 'Poppins', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+    }
+
+    body {
+    }
+
+    .snowflake {
+      position: fixed;
+      top: -10px;
+      color: white;
+      font-size: 0.7rem;
+      opacity: 0.6;
+      animation: fall linear infinite;
+      pointer-events: none;
+      z-index: 1;
+    }
+    @keyframes fall {
+      0% { transform: translateY(0); }
+      100% { transform: translateY(120vh); }
+    }
+
+    .heart-firework {
+      position: fixed;
+      font-size: 18px;
+      animation: explode 1.6s ease-out forwards;
+      pointer-events: none;
+      z-index: 30;
+    }
+    @keyframes explode {
+      0% { transform: scale(0.7); opacity: 1; }
+      100% { transform: scale(8); opacity: 0; }
+    }
+
+    .page {
+      position: relative;
+      z-index: 2;
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 20px 18px 60px;
+    }
+
+    header {
+      padding: 40px 0 20px;
+      text-align: center;
+    }
+
+    .hero-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 14px;
+      border-radius: 999px;
+      border: 1px solid var(--accent-soft);
+      background: radial-gradient(circle at top left, rgba(244,194,107,0.25), transparent 60%);
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    .hero-title {
+      margin: 16px 0 6px;
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      font-size: 32px;
+    }
+
+    .hero-sub {
+      margin: 0;
+      font-size: 14px;
+      color: var(--text-muted);
+    }
+
+    .hero-actions {
+      margin-top: 22px;
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      border-radius: 999px;
+      padding: 11px 22px;
+      font-size: 14px;
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: 0.18s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 500;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #f4c26b, #f09b3b);
+      color: #1b1006;
+      box-shadow: 0 0 24px rgba(244,194,107,0.45);
+    }
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 0 30px rgba(244,194,107,0.6);
+    }
+
+    .btn-ghost {
+      background: transparent;
+      border-color: var(--accent-soft);
+      color: var(--text-main);
+    }
+    .btn-ghost:hover {
+      border-color: var(--accent);
+      background: rgba(255,255,255,0.02);
+    }
+
+    .section {
+  margin-top: 24px;
+}
+}
+
+    .card {
+      background: linear-gradient(135deg, rgba(10,10,18,0.96), rgba(15,10,26,0.96));
+      border-radius: 20px;
+      padding: 22px 18px;
+      box-shadow: 0 18px 40px rgba(0,0,0,0.6);
+      border: 1px solid rgba(255,255,255,0.03);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: -120px;
+      background:
+        radial-gradient(circle at top left, rgba(244,194,107,0.15), transparent 55%),
+        radial-gradient(circle at bottom right, rgba(95,154,255,0.12), transparent 55%);
+      opacity: 0.65;
+      mix-blend-mode: screen;
+      pointer-events: none;
+    }
+
+    .card-inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    .card-title {
+      font-size: 18px;
+      margin: 0 0 4px;
+      font-family: 'Playfair Display', serif;
+    }
+
+    .card-sub {
+      margin: 0 0 14px;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    
+  .couple-photo {
+  margin-top: 10px;
+  width: 100%;
+  height: 360px;
+  border-radius: 18px;
+  box-shadow: 0 18px 40px rgba(0,0,0,0.85);
+  border: 1px solid rgba(244,194,107,0.28);
+  object-fit: cover;
+}
+
+    .rose-row {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-top: 10px;
+      flex-wrap: wrap;
+    }
+
+    .transparent-rose {
+      width: 120px;
+      max-width: 38vw;
+      cursor: pointer;
+      filter: drop-shadow(0 0 16px rgba(0,0,0,0.8));
+      transition: 0.2s ease;
+    }
+    .transparent-rose:hover {
+      transform: translateY(-3px) scale(1.03);
+    }
+
+    .rose-text {
+      flex: 1;
+      min-width: 180px;
+      font-size: 14px;
+      color: var(--text-muted);
+    }
+
+    .rose-text strong {
+      color: var(--accent);
+      font-weight: 500;
+    }
+
+    .hidden-message {
+      margin-top: 10px;
+      font-size: 14px;
+      color: var(--accent);
+      display: none;
+    }
+    @media (max-width: 768px) {
+  .playlist {
+    overflow: hidden;
+    }
+
+
+    .playlist iframe {
+    height: 280px !important;
+    min-height: 280px !important;
+    max-height: 280px !important;
+    display: block;
+    }
+
+    footer {
+      margin-top: 40px;
+      padding: 18px 0 0;
+      text-align: center;
+      font-size: 11px;
+      color: var(--text-muted);
+      opacity: 0.75;
+    }
+
+    #surpriseBox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: radial-gradient(circle at top, rgba(0,0,0,0.45), rgba(0,0,0,0.96));
+      z-index: 25;
+      align-items: center;
+      justify-content: center;
+      padding: 18px;
+    }
+    #surpriseContent {
+      background: linear-gradient(145deg, #130f1e, #1c152c);
+      padding: 26px 20px;
+      border-radius: 22px;
+      text-align: center;
+      box-shadow: 0 24px 60px rgba(0,0,0,0.9);
+      border: 1px solid rgba(244,194,107,0.4);
+      max-width: 520px;
+      width: 100%;
+      position: relative;
+      overflow: hidden;
+    }
+    #surpriseContent::before {
+      content: "";
+      position: absolute;
+      inset: -120px;
+      background:
+        radial-gradient(circle at top, rgba(244,194,107,0.32), transparent 58%),
+        radial-gradient(circle at bottom right, rgba(255,255,255,0.06), transparent 50%);
+      opacity: 0.9;
+      mix-blend-mode: screen;
+      pointer-events: none;
+    }
+    #surpriseContent h2 {
+      position: relative;
+      z-index: 1;
+      font-family: 'Playfair Display', serif;
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+    #surpriseContent p {
+      position: relative;
+      z-index: 1;
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+    }
+
+    #letterBox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.93);
+      z-index: 26;
+      align-items: center;
+      justify-content: center;
+      padding: 18px;
+    }
+    #letterContent {
+      background: radial-gradient(circle at top, #1f182b 0, #090712 58%);
+      padding: 26px 18px;
+      border-radius: 22px;
+      width: 100%;
+      max-width: 520px;
+      text-align: left;
+      box-shadow: 0 24px 70px rgba(0,0,0,0.95);
+      border: 1px solid rgba(244,194,107,0.45);
+      position: relative;
+      overflow: hidden;
+    }
+    #letterContent::before {
+      content: "";
+      position: absolute;
+      inset: -120px;
+      background:
+        radial-gradient(circle at top left, rgba(244,194,107,0.38), transparent 55%),
+        radial-gradient(circle at bottom right, rgba(255,255,255,0.08), transparent 52%);
+      opacity: 0.85;
+      mix-blend-mode: screen;
+      pointer-events: none;
+    }
+    #letterText {
+      position: relative;
+      z-index: 1;
+      font-size: 14px;
+      line-height: 1.7;
+      color: var(--text-main);
+      white-space: pre-wrap;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .letter-heading {
+      position: relative;
+      z-index: 1;
+      font-family: 'Playfair Display', serif;
+      font-size: 18px;
+      margin-top: 0;
+      margin-bottom: 10px;
+    }
+
+    .letter-actions {
+      position: relative;
+      z-index: 1;
+      margin-top: 18px;
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    .pill-tag {
+      padding: 3px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(244,194,107,0.45);
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--accent);
+      display: inline-block;
+      margin-bottom: 6px;
+      background: rgba(0,0,0,0.35);
+    }
+
+    @media (min-width: 720px) {
+      header {
+        padding-top: 56px;
+      }
+      .hero-title {
+        font-size: 40px;
+      }
+      .page {
+        padding: 26px 18px 70px;
+      }
+      .card {
+        padding: 24px 22px;
+      }
+      .couple-photo {
+        max-height: 420px;
+      }
+    }
+  
+.os-logo {
+  position: fixed;
+  top: 18px;
+  right: 18px;
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  font-size: 14px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, rgba(244,194,107,0.9), rgba(240,155,59,0.9));
+  color: #1b1006;
+  box-shadow: 0 6px 20px rgba(244,194,107,0.45);
+  letter-spacing: 0.12em;
+  z-index: 50;
+}
+
+.os-logo span {
+  font-family: 'Poppins', sans-serif;
+  font-size: 12px;
+}
+
+
+#starfield {
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(2px 2px at 20% 30%, rgba(255,255,255,0.6), transparent 60%),
+    radial-gradient(1.5px 1.5px at 80% 20%, rgba(255,255,255,0.5), transparent 60%),
+    radial-gradient(1px 1px at 60% 70%, rgba(255,255,255,0.4), transparent 60%),
+    radial-gradient(2px 2px at 30% 80%, rgba(255,255,255,0.65), transparent 60%);
+  background-repeat: repeat;
+  background-size: 400px 400px;
+  animation: starDrift 120s linear infinite;
+  z-index: 0;
+}
+
+@keyframes starDrift {
+  from { background-position: 0 0; }
+  to { background-position: 800px 1200px; }
+}
+
+
+#introOverlay {
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(circle at top, #0a0616 0, #020204 60%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  animation: introFadeIn 1.2s ease forwards;
+}
+
+.intro-content {
+  text-align: center;
+  padding: 30px 22px;
+  border-radius: 24px;
+  background: linear-gradient(145deg, rgba(10,10,18,0.96), rgba(18,10,28,0.96));
+  border: 1px solid rgba(244,194,107,0.5);
+  box-shadow: 0 30px 90px rgba(0,0,0,0.95);
+  animation: introZoom 1.2s ease forwards;
+}
+
+.intro-content h1 {
+  margin: 0 0 10px;
+  font-family: 'Playfair Display', serif;
+  font-size: 28px;
+}
+
+.intro-content p {
+  margin: 0 0 20px;
+  font-size: 14px;
+  color: var(--text-muted);
+}
+
+@keyframes introZoom {
+  from { transform: scale(0.9); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+@keyframes introFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+
+#fireworksCanvas {
+  position: fixed;
+  inset: 0;
+  z-index: 24;
+  pointer-events: none;
+  display: none;
+}
+    .playlist iframe {
+  min-height: 360px !important;
+  height: 360px !important;
+  display: block !important;
+}
+}
+    @media (max-width: 600px) {
+  .playlist iframe {
+    min-height: 300px !important;
+    height: 300px !important;
+  }
+      .OverflowMenuBase_wrapper__CyfQs {
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+        iframe {
+    display: block;
+    margin-bottom: -40px;
+    @media (max-width: 768px) {
+  .OverflowMenuBase_policies__r_Fbu,
+  .OverflowMenuBase_stickDown__xfZSA {
+    display: none !important;
+    }
+
+    .OverflowMenuBase_wrapper__CyfQs {
+      margin-bottom: 0 !important;
+      padding-bottom: 0 !important;
+    }
+  }
+  
+
+  }
+}
+      #letterContent {
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+.letter-actions {
+  position: sticky;
+  bottom: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+  padding: 12px;
+}
+      .section {
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.section:last-of-type {
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+  
+.card.playlist {
+  padding-bottom: 0;
+}
+
+.spotify-embed {
+  width: 100%;
+  height: 360px;
+  border: 0;
+  display: block;
+  margin: 0;
+}
+
+@media (max-width: 600px) {
+  .spotify-embed {
+    height: 300px;
+  }
+}
+
+  </style>
+</head>
+<body>
+
+<audio id="bgMusic" loop>
+  <source src="muzik.mp3" type="audio/mpeg">
+</audio>
+
+<div id="starfield"></div>
+
+
+<div class="os-logo">O <span>&</span> S</div>
+
+
+
+<div id="introOverlay">
+  <div class="intro-content">
+    <h1>Hoş geldin bir tanem</h1>
+    <p>Bu site, sana dair hissettiklerimin küçük bir yansıması...</p>
+    <button onclick="closeIntro()" class="btn btn-primary">Devam Et</button>
+  </div>
+</div>
+
+<div class="page">
+  <header>
+    <div class="hero-label">
+      <span>Onur’dan</span>
+      <span>•</span>
+      <span>Bu site sadece senin</span>
+    </div>
+    <h1 class="hero-title">Sinemim için 🖤</h1>
+    <p class="hero-sub">Her sayfada, her detayda, her satırda sadece seni düşündüm.</p>
+    <div class="hero-actions">
+      <button class="btn btn-primary" onclick="openSurprise()">Doğum Günü Sürprizini Aç 🎁</button>
+      <button class="btn btn-ghost" onclick="openLetter()">Mektubu Oku 💌</button>
+    </div>
+  </header>
+
+  <section class="section">
+    <div class="card">
+      <div class="card-inner">
+        <h2 class="card-title">Biz 💫</h2>
+        <p class="card-sub">Beni çok benzetemese de seni çok güzel yaptı.Bu kareyi gerçekleştireceğimiz zamanların gelmesi dileği ile...</p>
+        <div class="couple-wrap" style="--bg:url('biz.png')">
+  <img src="biz.png" alt="Biz" class="couple-photo">
+</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="card">
+      <div class="card-inner">
+        <h2 class="card-title">Siyah Gül 🖤</h2>
+        <p class="card-sub">Belki biraz karanlık, ama içi tamamen sen olan bir hediye.</p>
+        <div class="rose-row">
+          <img src="gul.png.png" class="transparent-rose" onclick="showMessage()" alt="Siyah Gül">
+          <div class="rose-text">
+            <strong>Bu gül, sana özel bir söz saklıyor.</strong><br>
+            Üzerine dokunduğunda, kalbimden geçenleri biraz daha net görebileceksin.
+          </div>
+        </div>
+        <div class="hidden-message" id="roseMessage">
+          Maşanın ne kadar şımarıp yaramazlık yapsa da her seferinde onu sabırla seven,
+          her istediğini yapan koca ayın olacağım. Bu siyah gül sana 🖤
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section playlist-section">
+  <div class="card playlist">
+    <h2 class="card-title">Senin İçin Bir Liste 🎶</h2>
+    <p class="card-sub">Her şarkıda, seni biraz daha fazla hatırlamak için...</p>
+
+    <iframe
+      class="spotify-embed"
+      src="https://open.spotify.com/embed/playlist/0UNNjnfAY6GGTC3pNZ6H8l"
+      allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+      loading="lazy">
+  </iframe>
+</div>
+    </div>
+  </section>
+  <div id="pageEnd"></div>
+
+  <section class="section">
+    <div class="card">
+      <div class="card-inner">
+        <h2 class="card-title">Küçük Not</h2>
+        <p class="card-sub">senin mutlu olucağın düşüncesi beni her seferinde daha çok motive etti.Umarım seni çok mutlu eder ve unutulmaz bir hediye olur. seni çok seviyorum iyi ki sen varsın</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    © 2025 – Sadece senin için hazırlandı. Her satırında Onur’un kalbi var. 🖤
+  </footer>
+</div>
+
+
+<canvas id="fireworksCanvas"></canvas>
+
+<div id="surpriseBox">
+  <div id="surpriseContent">
+    <h2>İyi ki doğdun, iyi ki sen varsın. Nice beraber yıllarımıza ❤️</h2>
+    <p>Bu anı, umarım seni hep mutlu eder.</p>
+    <button class="btn btn-primary" onclick="closeSurprise()">Kapat</button>
+  </div>
+</div>
+
+<div id="letterBox">
+  <div id="letterContent">
+    <div class="pill-tag">Onur’dan mektup</div>
+    <h3 class="letter-heading">Bunu okumaya başladığında, muhtemelen yine gülümsüyor olacaksın.</h3>
+    <p id="letterText"></p>
+    <div class="letter-actions">
+      <button class="btn btn-ghost" onclick="closeLetter()">Kapat</button>
+    </div>
+  </div>
+</div>
+
+<script>
+const letter = `
+Sen hediye kabul etmeyince, ben de içimden geleni en saf haliyle yapmaya çalıştım. 
+Belki sana emek vermek, sana kalbimden bir yerden dokunabilir diye düşündüm. 
+Çünkü seni ne kadar çok sevdiğimi anlatmaya kelimeler yetmiyor; seninle geçen bir an bile benim için paha biçilemez.
+
+Herkesten sakladığın o çocuksu yanlarına sarılıp, her şeyin yoluna gireceğini fısıldamak isterdim. 
+Artık güvende olduğunu, korktuğunda elini tutacak birinin hep burada olduğunu bilmeni isterim. 
+Sen benim için çok değerlisin ve bunu hiçbir şey değiştiremez.
+
+Umarım birlikte daha nice doğum günlerine uyanırız, pastaların mumlarını yan yana üfleriz. 
+Umarım her yeni yaşında yanında olurum ve gözlerinin içine bakıp “iyi ki sen varsın” diyebilirim. 
+Dilediğin her şeyin gerçek olduğu bir hayatın olsun.
+
+İyi ki sen varsın.
+
+Seni her şeyden çok seven,  
+Onur
+`;
+
+  function createSnow() {
+    const snow = document.createElement("div");
+    snow.classList.add("snowflake");
+    snow.textContent = "✦";
+    snow.style.left = Math.random() * 100 + "vw";
+    snow.style.animationDuration = (Math.random() * 4 + 3) + "s";
+    document.body.appendChild(snow);
+    setTimeout(() => snow.remove(), 8000);
+  }
+  setInterval(createSnow, 260);
+
+  function heartFirework() {
+    const fw = document.createElement("div");
+    fw.className = "heart-firework";
+    fw.textContent = "✨";
+    fw.style.left = Math.random() * window.innerWidth + "px";
+    fw.style.top = Math.random() * window.innerHeight + "px";
+    document.body.appendChild(fw);
+    setTimeout(() => fw.remove(), 1600);
+  }
+
+  function openSurprise() {
+    document.getElementById("surpriseBox").style.display = "flex";
+    for (let i = 0; i < 70; i++) {
+      setTimeout(heartFirework, i * 70);
+    }
+  }
+
+  function closeSurprise() {
+    document.getElementById("surpriseBox").style.display = "none";
+  }
+
+  function showMessage() {
+    const msg = document.getElementById("roseMessage");
+    msg.style.display = "block";
+  }
+
+  function openLetter() {
+    const box = document.getElementById("letterBox");
+    const textEl = document.getElementById("letterText");
+    box.style.display = "flex";
+    textEl.innerText = "";
+    let i = 0;
+    const interval = setInterval(() => {
+      textEl.innerText += letter.charAt(i);
+      i++;
+      if (i >= letter.length) clearInterval(interval);
+    }, 35);
+  }
+ {
+    function closeLetter() {
+  document.getElementById("letterBox").style.display = "none";
+  document.body.style.overflow = "auto";
+}
+  }
+
+document.querySelector('.os-logo')?.addEventListener('click', () => {
+  for (let i = 0; i < 28; i++) {
+    setTimeout(() => {
+      const heart = document.createElement('div');
+      heart.innerText = '🖤';
+      heart.style.position = 'fixed';
+      heart.style.left = Math.random() * window.innerWidth + 'px';
+      heart.style.top = Math.random() * window.innerHeight + 'px';
+      heart.style.fontSize = '18px';
+      heart.style.opacity = '1';
+      heart.style.transition = '1.4s ease';
+      heart.style.zIndex = '60';
+      document.body.appendChild(heart);
+
+      setTimeout(() => {
+        heart.style.transform = 'scale(5)';
+        heart.style.opacity = '0';
+      }, 30);
+
+      setTimeout(() => heart.remove(), 1400);
+    }, i * 45);
+  }
+});
+
+
+function closeIntro() {
+  const intro = document.getElementById('introOverlay');
+  intro.style.opacity = '0';
+
+  const music = document.getElementById("bgMusic");
+  if (music) {
+    music.volume = 0.9;
+    music.play().catch(() => {});
+  }
+
+  setTimeout(() => intro.remove(), 600);
+}
+
+
+let fwCanvas = document.getElementById("fireworksCanvas");
+let fwCtx = fwCanvas.getContext("2d");
+
+function resizeFW() {
+  fwCanvas.width = window.innerWidth;
+  fwCanvas.height = window.innerHeight;
+}
+window.addEventListener("resize", resizeFW);
+resizeFW();
+
+let fireworks = [];
+
+function launchFirework() {
+  const x = Math.random() * fwCanvas.width;
+  const y = Math.random() * fwCanvas.height * 0.5 + 60;
+  let particles = [];
+  for (let i = 0; i < 80; i++) {
+    const angle = Math.random() * Math.PI * 2;
+    const speed = Math.random() * 4 + 2;
+
+    particles.push({
+      x, y,
+      vx: Math.cos(angle) * speed,
+      vy: Math.sin(angle) * speed,
+      alpha: 1
+    });
+  }
+  fireworks.push(particles);
+}
+
+function drawFireworks() {
+  fwCtx.clearRect(0, 0, fwCanvas.width, fwCanvas.height);
+  fireworks.forEach((particles, index) => {
+    particles.forEach(p => {
+      fwCtx.fillStyle = `rgba(244,194,107,${p.alpha})`;
+      fwCtx.beginPath();
+      fwCtx.arc(p.x, p.y, 2, 0, Math.PI * 2);
+      fwCtx.fill();
+
+      p.x += p.vx;
+      p.y += p.vy;
+      p.alpha -= 0.015;
+    });
+
+    fireworks[index] = particles.filter(p => p.alpha > 0);
+  });
+
+  fireworks = fireworks.filter(f => f.length > 0);
+  requestAnimationFrame(drawFireworks);
+}
+drawFireworks();
+
+const originalOpenSurprise = openSurprise;
+openSurprise = function() {
+  document.getElementById("fireworksCanvas").style.display = "block";
+  originalOpenSurprise();
+
+  for (let i = 0; i < 6; i++) {
+    setTimeout(launchFirework, i * 500);
+  }
+};
+
+const originalCloseSurprise = closeSurprise;
+closeSurprise = function() {
+  document.getElementById("fireworksCanvas").style.display = "none";
+  fireworks = [];
+  originalCloseSurprise();
+};
+
+</script>
+
+</body>
+</html>
