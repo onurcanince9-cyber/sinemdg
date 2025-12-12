@@ -479,6 +479,24 @@
   pointer-events: none;
   display: none;
 }
+    #playlist {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+}
+
+@media (max-width: 768px) {
+  .section,
+  .page {
+    height: auto !important;
+    overflow: visible !important;
+  }
+
+  #playlist iframe {
+    width: 100% !important;
+    min-height: 420px;
+  }
+}
 
   </style>
 </head>
