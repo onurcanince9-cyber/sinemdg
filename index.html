@@ -520,8 +520,6 @@
       #letterContent {
   max-height: 80vh;
   overflow-y: auto;
-  max-height: 80vh;
-  overflow-y: auto;
 }
 
 .letter-actions {
@@ -530,8 +528,7 @@
   background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
   padding: 12px;
 }
-      #letterBox {
-  padding-bottom: 80px;
+  
 }
 
   </style>
@@ -726,9 +723,11 @@ Onur
       if (i >= letter.length) clearInterval(interval);
     }, 35);
   }
-
-  function closeLetter() {
-    document.getElementById("letterBox").style.display = "none";
+ {
+    function closeLetter() {
+  document.getElementById("letterBox").style.display = "none";
+  document.body.style.overflow = "auto";
+}
   }
 
 document.querySelector('.os-logo')?.addEventListener('click', () => {
