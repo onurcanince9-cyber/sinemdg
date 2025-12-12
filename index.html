@@ -782,6 +782,12 @@ closeSurprise = function() {
   fireworks = [];
   originalCloseSurprise();
 };
+function closeIntro() {
+    const intro = document.getElementById("introOverlay");
+    if (intro) {
+      intro.style.display = "none";
+    }
+  }
 
 </script>
 
