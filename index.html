@@ -793,6 +793,23 @@ function closeIntro() {
   const intro = document.getElementById("introOverlay");
   intro.style.display = "none";
 });
+  document.getElementById("introBtn").addEventListener("click", () => {
+  const intro = document.getElementById("introOverlay");
+  if (intro) intro.style.display = "none";
+
+  const music = document.getElementById("bgMusic");
+  if (music) {
+    music.play().catch(err => {
+      console.log("Müzik engellendi:", err);
+    });
+  }
+
+  const playlist = document.getElementById("playlist");
+  if (playlist) {
+    playlist.style.display = "block";
+    playlist.style.opacity = "1";
+  }
+});
 
 </script>
 
