@@ -530,6 +530,15 @@
 }
   
 }
+    .section:last-of-type {
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+footer {
+  margin-top: 0;
+  padding-top: 12px;
+  padding-bottom: 12px;
 
   </style>
 </head>
@@ -785,7 +794,6 @@ let fireworks = [];
 function launchFirework() {
   const x = Math.random() * fwCanvas.width;
   const y = Math.random() * fwCanvas.height * 0.5 + 60;
-
   let particles = [];
   for (let i = 0; i < 80; i++) {
     const angle = Math.random() * Math.PI * 2;
