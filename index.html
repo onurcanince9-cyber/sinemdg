@@ -497,6 +497,33 @@
     min-height: 420px;
   }
 }
+    #letterModal {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: none;
+  background: rgba(0,0,0,0.7);
+}
+
+/* Açık hali */
+#letterModal.active {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Mektup kartı */
+#letterModal .card {
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+/* Kapat butonu */
+#letterModal .btn-close {
+  position: sticky;
+  bottom: 0;
+  margin-top: 16px;
+}
 
   </style>
 </head>
@@ -589,7 +616,7 @@
     <div class="card">
       <div class="card-inner">
         <h2 class="card-title">Küçük Not</h2>
-        <p class="card-sub">Bu site bir hediye değil sadece; emek, zaman ve içtenlikten kurulu bir “iyi ki varsın”.</p>
+        <p class="card-sub">Umarım seni hep mutlu edebilen bir hediye olur İyi ki sen varsın.</p>
       </div>
     </div>
   </section>
@@ -604,8 +631,8 @@
 
 <div id="surpriseBox">
   <div id="surpriseContent">
-    <h2>İyi ki doğdun, iyi ki varsın. Nice beraber yıllarımıza ❤️</h2>
-    <p>Bu anı, aklıma geldiği her seferinde gülüşünü hatırlatacak.</p>
+    <h2>İyi ki doğdun, iyi ki sen varsın. Nice beraber yıllarımıza ❤️</h2>
+    <p>Bu anı, aklıma geldiği her seferinde seni mutlu etsin.</p>
     <button class="btn btn-primary" onclick="closeSurprise()">Kapat</button>
   </div>
 </div>
