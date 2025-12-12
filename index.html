@@ -499,7 +499,7 @@
   <div class="intro-content">
     <h1>Hoş geldin Bir Tanem</h1>
     <p>Bu site, sana dair hissettiklerimin küçük bir yansıması...</p>
-    <button onclick="closeIntro()" class="btn btn-primary">Devam Et</button>
+    <button id="introBtn" class="btn btn-primary">Devam Et</button>
   </div>
 </div>
 
@@ -790,6 +790,10 @@ function closeIntro() {
   }
 
 </script>
+  document.getElementById("introBtn").addEventListener("click", function () {
+  const intro = document.getElementById("introOverlay");
+  intro.style.display = "none";
+});
 
 </body>
 </html>
