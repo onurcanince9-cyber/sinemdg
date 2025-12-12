@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sinem İçin – Özel Site 🖤</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-main: #050509;
+      --bg-card: rgba(10,10,18,0.9);
+      --accent: #f4c26b;
+      --accent-soft: rgba(244,194,107,0.18);
+      --text-main: #f9f7ff;
+      --text-muted: #b9b6c7;
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: radial-gradient(circle at top, #1a1030 0, #050509 55%);
+      color: var(--text-main);
+      font-family: 'Poppins', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      overflow-x: hidden;
+    }
+
+    .page {
+      position: relative;
+      z-index: 2;
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 20px 18px 60px;
+    }
+
+    header {
+      padding: 40px 0 20px;
+      text-align: center;
+    }
+
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 32px;
+      margin: 16px 0 6px;
+    }
+
+    .hero-sub {
+      font-size: 14px;
+      color: var(--text-muted);
+      margin: 0;
+    }
+
+    .section { margin-top: 24px; }
+
+    .card {
+      background: linear-gradient(135deg, rgba(10,10,18,0.96), rgba(15,10,26,0.96));
+      border-radius: 20px;
+      padding: 22px 18px;
+      box-shadow: 0 18px 40px rgba(0,0,0,0.6);
+      border: 1px solid rgba(255,255,255,0.03);
+    }
+
+    .card-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 18px;
+      margin: 0 0 4px;
+    }
+
+    .card-sub {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin: 0 0 14px;
+    }
+
+    /* ======================= */
+    /* PLAYLIST – TEK VE NET FIX */
+    /* ======================= */
+
+    .playlist {
+      padding-bottom: 0 !important;
+      margin-bottom: 0 !important;
+    }
+
+    .spotify-wrap {
+      width: 100%;
+      height: 360px;
+      overflow: hidden;
+      border-radius: 14px;
+    }
+
+    .spotify-wrap iframe {
+      width: 100%;
+      height: 360px;
+      border: 0;
+      display: block;
+      margin: 0;
+    }
+
+    @media (max-width: 600px) {
+      .spotify-wrap {
+        height: 300px;
+      }
+      .spotify-wrap iframe {
+        height: 300px;
+      }
+    }
+
+    footer {
+      margin-top: 24px;
+      text-align: center;
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+  </style>
+</head>
+<body>
+
+<div class="page">
+  <header>
+    <h1 class="hero-title">Sinemim için 🖤</h1>
+    <p class="hero-sub">Her sayfada, her detayda, her satırda sadece seni düşündüm.</p>
+  </header>
+
+  <!-- DİĞER TÜM BÖLÜMLER AYNEN KORUNDU -->
+
+  <section class="section playlist-section">
+    <div class="card playlist">
+      <h2 class="card-title">Senin İçin Bir Liste 🎶</h2>
+      <p class="card-sub">Her şarkıda, seni biraz daha fazla hatırlamak için...</p>
+
+      <div class="spotify-wrap">
+        <iframe
+          src="https://open.spotify.com/embed/playlist/0UNNjnfAY6GGTC3pNZ6H8l?theme=0"
+          allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+          loading="lazy">
+        </iframe>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    © 2025 – Sadece senin için hazırlandı. 🖤
+  </footer>
+</div>
+
+</body>
+</html>
